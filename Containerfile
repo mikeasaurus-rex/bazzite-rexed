@@ -333,8 +333,8 @@ RUN --mount=type=cache,dst=/var/cache \
         rocm-hip \
         rocm-opencl \
         rocm-clinfo \
-        waydroid \
         cage \
+        virt-manager \
         wlr-randr && \
     systemctl mask iscsi && \
     mkdir -p /usr/lib/extest/ && \
@@ -402,8 +402,7 @@ RUN --mount=type=cache,dst=/var/cache \
         libobs_glcapture.i686 \
         VK_hdr_layer && \
     dnf5 -y --setopt=install_weak_deps=False install \
-        steam \
-        lutris && \
+        steam &&\
     dnf5 -y remove \
         gamemode && \
     /ctx/ghcurl "$(/ctx/ghcurl https://api.github.com/repos/ishitatsuyuki/LatencyFleX/releases/latest | jq -r '.assets[] | select(.name| test(".*.tar.xz$")).browser_download_url')" --retry 3 -Lo /tmp/latencyflex.tar.xz && \
